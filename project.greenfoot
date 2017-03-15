@@ -1,0 +1,19 @@
+#Greenfoot properties
+#Wed Mar 15 13:35:25 ICT 2017
+class.Rat.superclass=greenfoot.Actor
+project.charset=UTF-8
+class.Trap.image=skull.png
+class.Rat.image=mouse.png
+mainWindow.height=600
+version=2.8.0
+class.CheeseBomb.superclass=greenfoot.Actor
+simulation.speed=57
+world.lastInstantiated=MyWorld
+class.MyWorld.superclass=greenfoot.World
+class.Exterminator.superclass=greenfoot.Actor
+mainWindow.y=40
+mainWindow.x=40
+class.Cheese.superclass=greenfoot.Actor
+mainWindow.width=850
+class.Trap.superclass=greenfoot.Actor
+class.Exterminator.image=man.png
