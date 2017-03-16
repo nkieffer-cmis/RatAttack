@@ -13,13 +13,12 @@ public class Rat extends Actor
     public void act() 
     {
         eat();
-        Cheese closest = getClosestCheese(200);
+        Cheese closest = getTargetCheese(200);
         if(closest == null){
             wander();
         } else{
             moveTowardCheese(closest);
         }
-        spawnRat();
         die();
     }   
 
@@ -64,16 +63,15 @@ public class Rat extends Actor
         setLocation(x + dx, y + dy);
     }
     
-    public Cheese getClosestCheese(int range){
-        /* implement this */
+    public Cheese getTargetCheese(int range){
+        Cheese target = null;
         List<Cheese> cheeses = getObjectsInRange(range, Cheese.class);
         if (cheeses.size() == 0){
-            return null;
-        }else if( cheeses.size() == 1 ){
-            return cheeses.get(0);
-        } else {
-            return getClosestCheese(range - 1);
-        }
+            target = null;
+        }else if( cheeses.size() >= 1 ){
+            target = cheeses.get(0);
+        } 
+        return target;
     }
     
     public void eat(){
@@ -85,13 +83,6 @@ public class Rat extends Actor
         }
     }
     
-    public void spawnRat(){
-        if(eaten == 3){
-            MyWorld w = (MyWorld)getWorld();
-            w.spawnRat(getX(), getY());
-            eaten = 0;
-        }
-    }
     
     public void die(){
         if(isTouching(Trap.class)){

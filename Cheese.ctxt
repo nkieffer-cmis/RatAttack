@@ -6,6 +6,4 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=boolean\ isRotten()
-comment4.params=
-comment4.target=void\ putrify()
-numComments=5
+numComments=4

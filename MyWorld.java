@@ -28,64 +28,20 @@ public class MyWorld extends World
     
     public void act(){
         runningTime = System.currentTimeMillis() - startTime;
-        removeRottenCheese();
-        if(Math.random() > 0.999){
-            dropCheeseBomb();
-        }
-        spawnRat();
+
         if(getObjects(Rat.class).size() == 0){
             init(level++);
         }
         showText(score+"  "+(int)(15 -(runningTime/1000.0)), 50, 50);
 
     }
-
-    public void removeRottenCheese(){
-        /* implement this */
-        for(Actor c: getObjects(Cheese.class)){
-            Cheese cheese = (Cheese) c;
-            if( cheese.isRotten() ){
-                removeObject(c);
-            }
-        }
-    }
-
-    public void spawnRat(){
-        /* implement this */
-        if(runningTime / 1000.0 > 15){
-            startTime = System.currentTimeMillis();
-            addObject(new Rat(), 0, Greenfoot.getRandomNumber(400));
-        }
-    }
     
-    public void spawnRat(int x, int y){
-        addObject(new Rat(), x, y);
-    }
 
     public void addCheese(int x, int y){
         addObject(new Cheese(), x, y);
     }
 
-    public void dropCheeseBomb(){
-        /* implement this */
-        CheeseBomb cb = new CheeseBomb();
-        int x, y;
-        int side = Greenfoot.getRandomNumber(4);
-        if(side == 0){
-            x = Greenfoot.getRandomNumber(600);
-            y = 50;
-        } else if (side == 1){
-            x = Greenfoot.getRandomNumber(600);
-            y = 400 - 50;
-        } else if (side == 2){
-            x = 50;
-            y = Greenfoot.getRandomNumber(400);
-        } else {
-            x = 600 - 50;
-            y = Greenfoot.getRandomNumber(400);
-        }
-        addObject(cb, x, y);
-    }
+
 
     public void score(){
         score++;
